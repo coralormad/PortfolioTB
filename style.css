@@ -1,25 +1,85 @@
+:root {
+  --color-primario: #5C7FA6;
+  --color-acento: #e8c8d3;
+  --color-secundario: #BFE1F5;
+  --color-fondo: #FBF6F9;
+  --color-superficie: #ffffff;
+  --color-texto: #33404D;
+  --color-morado: #B8ACE0;
+  --color-morado-rgb: 184, 172, 224;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  background: var(--color-fondo);
+}
 
 body {
   font-family: Arial, sans-serif;
-  color: #1a1a1a;
-  background: #f0f4f8;
+  color: var(--color-texto);
+  background:
+    radial-gradient(at 15% 10%, rgba(184, 172, 224, 0.55) 0, transparent 50%),
+    radial-gradient(at 85% 20%, rgba(191, 225, 245, 0.6) 0, transparent 50%),
+    radial-gradient(at 50% 90%, rgba(242, 166, 194, 0.35) 0, transparent 50%),
+    var(--color-fondo);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .cabecera {
+  background: rgba(var(--color-morado-rgb), 0.9);
+  backdrop-filter: blur(6px);
+  padding: 8px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.cabecera-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 16px;
-  background: #1A5276;
-  padding: 8px 16px;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .logo {
-  color: white;
+  color: var(--color-texto);
   font-weight: bold;
   text-decoration: none;
+}
+
+.redes-header {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 4px 10px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.redes-header i {
+  font-size: 1.2rem;
+  color: var(--color-primario);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.redes-header a:hover i,
+.redes-header a:focus-visible i {
+  transform: translateY(-2px) scale(1.15);
+  color: var(--color-acento);
 }
 
 .menu {
@@ -29,7 +89,7 @@ body {
 }
 
 .menu a {
-  color: white;
+  color: var(--color-texto);
   text-decoration: none;
   padding: 12px 8px;
   border-radius: 4px;
@@ -37,69 +97,15 @@ body {
 
 .menu a:hover,
 .menu a:focus-visible {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.seccion { padding: 24px 16px; }
-
-.tarjetas {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.tarjeta {
-  flex: 1 1 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.tarjeta .btn {
-  margin-top: auto;
-}
-
-@media (min-width: 600px) {
-  .tarjetas {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .tarjeta {
-    flex: 1 1 280px;
-  }
-}
-
-.tarjeta {
-  background: white;
-  border: 2px solid #1A5276;
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.btn {
-  display: inline-block;
-  background: #1A5276;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-top: 12px;
-}
-
-.pie {
-  background: #1A5276;
-  color: white;
-  text-align: center;
-  padding: 16px;
-}
-.cabecera {
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .seccion {
+  padding: 24px 16px;
   scroll-margin-top: 60px;
+  max-width: 1100px;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .perfil {
@@ -127,9 +133,51 @@ body {
   }
 }
 
+.tarjetas {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.tarjeta {
+  background: var(--color-superficie);
+  border: 2px solid var(--color-secundario);
+  border-radius: 12px;
+  padding: 16px;
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(92, 127, 166, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(92, 127, 166, 0.25);
+}
+
+.tarjeta .btn {
+  margin-top: auto;
+}
+
+@media (min-width: 600px) {
+  .tarjetas {
+    flex-direction: row;
+  }
+
+  .tarjeta {
+    flex: 0 1 340px;
+    max-width: 340px;
+  }
+}
+
 .tecnologias {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px 16px;
   list-style: none;
   margin: 12px 0;
@@ -145,30 +193,105 @@ body {
 
 .tecnologias i {
   font-size: 1.3rem;
-  color: #1A5276;
+  color: var(--color-primario);
 }
 
-.cabecera {
-  background: #1A5276;
-  padding: 8px 16px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.cabecera-inner {
+.stack {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 8px 16px;
-  max-width: 1100px;
-  margin-inline: auto;
+  justify-content: center;
+  gap: 12px 20px;
+  list-style: none;
+  margin-top: 16px;
 }
 
-.seccion {
-  padding: 24px 16px;
-  scroll-margin-top: 60px;
-  max-width: 1100px;
-  margin-inline: auto;
+.stack li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-secundario);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+.stack i {
+  font-size: 1.2rem;
+  color: var(--color-primario);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--color-morado);
+  color: var(--color-texto);
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-top: 12px;
+  font-weight: bold;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--color-acento);
+  transform: translateY(-2px);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 500px;
+  margin: 16px auto 0;
+  text-align: left;
+}
+
+.formulario label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 10px;
+  border: 1px solid var(--color-secundario);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 2px;
+}
+
+.formulario button {
+  align-self: center;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.redes i {
+  font-size: 2.2rem;
+  color: var(--color-primario);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.redes a:hover i,
+.redes a:focus-visible i {
+  transform: translateY(-4px) scale(1.1);
+  color: var(--color-acento);
+}
+
+.pie {
+  background: rgba(var(--color-morado-rgb), 0.75);
+  color: var(--color-texto);
+  text-align: center;
+  padding: 16px;
+  width: 100%;
 }

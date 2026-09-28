@@ -9,22 +9,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="cabecera">
-      <div class="cabecera-inner">
-        <a class="logo" href="#inicio">Coral de Pablos</a>
-        <nav class="menu" aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
-       </nav>
-     </div>
-    </header>
 
+ <header class="cabecera">
+     <div class="cabecera-inner">
+        <div class="marca">
+          <a class="logo" href="#inicio">Coral de Pablos</a>
+          <div class="redes-header">
+            <a href="https://github.com/coralormad" target="_blank" rel="noopener" aria-label="GitHub de Coral de Pablos Ormad">
+              <i class="devicon-github-original"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/coral-de-pablos-ormad-dev" target="_blank" rel="noopener" aria-label="LinkedIn de Coral de Pablos Ormad">
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+          </div>
+        </div>
+        <nav class="menu" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+  </header>
+
+  
   <main>
         <section class="seccion" id="inicio">
       <div class="perfil">
-        <img class="foto" src="C:\Users\coral\OneDrive\Desktop\Coral\The Bridge (Fullstack Developer)\PortfolioTB\img\foto-perfil.jpg" width="200" height="200"
-             alt="Foto de Coral de Pablos Ormad, desarrolladora Full Stack">
+        <img class="foto" src="img/foto-perfil.jpg" width="200" height="200" alt="Foto de Coral de Pablos Ormad, desarrolladora Full Stack">
         <div class="descripcion">
           <h1>Coral de Pablos Ormad</h1>
           <p>Desarrolladora Full Stack con foco en backend: Node.js, TypeScript y PostgreSQL. Recién graduada en Desarollo de Aplicaciones Web; focalizada en la realización de proyectos con Pymes, construyo soluciones y mejoras personalizadas para las empresas que me rodean. En busca de nuevos retos que me hagan aprender más de este inmenso mundo tecnológico
@@ -39,7 +50,6 @@
         <article class="tarjeta">
           <h3>CleanOps</h3>
           <p>PWA fullstack para la gestión de servicios de limpieza, desarrollada en solitario. Resolví una recursión infinita en las políticas RLS de PostgreSQL mediante una función <code>SECURITY DEFINER</code>.</p>
-          <ul class="tecnologias">
            <ul class="tecnologias">
             <li><i class="devicon-react-original"></i> React</li>
             <li><i class="devicon-typescript-plain"></i> TypeScript</li>
@@ -50,24 +60,52 @@
           </ul>
           <a class="btn" href="https://github.com/coralormad/CleanOps" target="_blank" rel="noopener">Ver CleanOps en GitHub</a>
         </article>
-        <article class="tarjeta">
+         <article class="tarjeta">
           <h3>2Tattoo</h3>
           <p>Trabajo de Fin de Grado: red social y plataforma de reserva de citas para tatuadores.</p>
           <ul class="tecnologias">
             <li><i class="devicon-php-plain"></i> PHP</li>
             <li><i class="devicon-javascript-plain"></i> JavaScript</li>
           </ul>
-          <a class="btn" href="https://github.com/coralormad/2Tattoo" target="_blank" rel="noopener">Ver 2Tattoo en GitHub</a>
+          <a class="btn" href="https://github.com/coralormad/2tattoo" target="_blank" rel="noopener">Ver en GitHub</a>
         </article>
       </div>
     </section>
 
+    <section class="seccion" id="tecnologias">
+      <h2>Tecnologías</h2>
+      <ul class="stack">
+        <li><i class="devicon-javascript-plain"></i> JavaScript</li>
+        <li><i class="devicon-typescript-plain"></i> TypeScript</li>
+        <li><i class="devicon-nodejs-plain"></i> Node.js</li>
+        <li><i class="devicon-react-original"></i> React</li>
+        <li><i class="devicon-vitejs-plain"></i> Vite</li>
+        <li><i class="devicon-tailwindcss-plain"></i> Tailwind CSS</li>
+        <li><i class="devicon-postgresql-plain"></i> PostgreSQL</li>
+        <li><i class="devicon-supabase-plain"></i> Supabase</li>
+        <li><i class="devicon-php-plain"></i> PHP</li>
+        <li><i class="devicon-git-plain"></i> Git</li>
+        <li><i class="devicon-azure-plain"></i> Azure</li>
+      </ul>
+    </section>
+
     <section class="seccion" id="contacto">
       <h2>Contacto</h2>
-      <p>
-        <a href="https://github.com/coralormad" target="_blank" rel="noopener">GitHub</a> ·
-        <a href="https://www.linkedin.com/in/coral-de-pablos-ormad-dev" target="_blank" rel="noopener">LinkedIn</a>
-      </p>
+      <form class="formulario" action="https://formsubmit.co/soft.apps360@gmail.com" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="observacion">Observación</label>
+        <textarea id="observacion" name="observacion" rows="3" required></textarea>
+
+        <label for="peticion">Petición</label>
+        <textarea id="peticion" name="peticion" rows="3" required></textarea>
+
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
     </section>
   </main>
 
