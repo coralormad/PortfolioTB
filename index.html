@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
   <title>Coral de Pablos Ormad | Desarrolladora Full Stack en Madrid</title>
   <meta name="description" content="Portfolio de Coral de Pablos Ormad, desarrolladora web Full Stack en Madrid. Proyectos con React, TypeScript, Supabase y PostgreSQL.">
   <link rel="stylesheet" href="style.css">
@@ -18,10 +19,16 @@
   </header>
 
   <main>
-    <section class="seccion" id="inicio">
-      <h1>Coral de Pablos Ormad, Desarrolladora Web Full Stack</h1>
-      <img src="https://picsum.photos/1200/400" width="1200" height="400"
-           alt="Portada del portfolio de Coral de Pablos Ormad">
+        <section class="seccion" id="inicio">
+      <div class="perfil">
+        <img class="foto" src="img/foto-perfil.jpg" width="200" height="200"
+             alt="Foto de Coral de Pablos Ormad, desarrolladora Full Stack">
+        <div class="descripcion">
+          <h1>Coral de Pablos Ormad</h1>
+          <p>Desarrolladora Full Stack con foco en backend: Node.js, TypeScript y PostgreSQL. Recién graduada en Desarollo de Aplicaciones Web; focalizada en la realización de proyectos con Pymes, construyo soluciones y mejoras personalizadas para las empresas que me rodean. En busca de nuevos retos que me hagan aprender más de este inmenso mundo tecnológico
+            .</p>
+        </div>
+      </div>
     </section>
 
     <section class="seccion" id="proyectos">
@@ -30,13 +37,25 @@
         <article class="tarjeta">
           <h3>CleanOps</h3>
           <p>PWA fullstack para la gestión de servicios de limpieza, desarrollada en solitario. Resolví una recursión infinita en las políticas RLS de PostgreSQL mediante una función <code>SECURITY DEFINER</code>.</p>
-          <p>Tecnologías: React 18, TypeScript, Vite, Tailwind CSS, Supabase (PostgreSQL con RLS y Auth), Cloudflare R2 y Vercel.</p>
+          <ul class="tecnologias">
+           <ul class="tecnologias">
+            <li><i class="devicon-react-original"></i> React</li>
+            <li><i class="devicon-typescript-plain"></i> TypeScript</li>
+            <li><i class="devicon-vitejs-plain"></i> Vite</li>
+            <li><i class="devicon-tailwindcss-plain"></i> Tailwind CSS</li>
+            <li><i class="devicon-supabase-plain"></i> Supabase</li>
+            <li><i class="devicon-postgresql-plain"></i> PostgreSQL</li>
+          </ul>
           <a class="btn" href="https://github.com/coralormad/CleanOps" target="_blank" rel="noopener">Ver CleanOps en GitHub</a>
         </article>
         <article class="tarjeta">
-          <h3>Red social para tatuadores</h3>
+          <h3>2Tattoo</h3>
           <p>Trabajo de Fin de Grado: red social y plataforma de reserva de citas para tatuadores.</p>
-          <p>Tecnologías: PHP y JavaScript.</p>
+          <ul class="tecnologias">
+            <li><i class="devicon-php-plain"></i> PHP</li>
+            <li><i class="devicon-javascript-plain"></i> JavaScript</li>
+          </ul>
+          <a class="btn" href="https://github.com/coralormad/2Tattoo" target="_blank" rel="noopener">Ver 2Tattoo en GitHub</a>
         </article>
       </div>
     </section>
