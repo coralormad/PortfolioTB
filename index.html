@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
-  <title>Coral de Pablos Ormad | Desarrolladora Full Stack en Madrid</title>
+  <title>Coral de Pablos Ormad | Desarrolladora Full Stack en Sevilla</title>
   <meta name="description" content="Portfolio de Coral de Pablos Ormad, desarrolladora web Full Stack en Sevilla. Proyectos con React, TypeScript, Supabase y PostgreSQL.">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,9 +23,17 @@
             </a>
           </div>
         </div>
+        
+        <!-- Checkbox invisible: guarda el estado abierto/cerrado. Debe ir ANTES del label y del nav (el CSS usa el selector ~ que solo mira hacia delante) -->
+        <input type="checkbox" id="menu-check" class="menu-check" aria-label="Abrir o cerrar el menú">
+        <!-- Al pulsar el label se marca el checkbox de su for="" -->
+        <label for="menu-check" class="menu-toggle" aria-hidden="true">
+          <span class="barras"></span> <!-- las 3 rayas se dibujan con CSS -->
+        </label>
         <nav class="menu" aria-label="Navegación principal">
           <a href="#inicio">Inicio</a>
           <a href="#proyectos">Proyectos</a>
+          <a href="#tecnologias">Tecnologías</a>
           <a href="#contacto">Contacto</a>
         </nav>
       </div>
@@ -33,7 +41,7 @@
 
   
   <main>
-        <section class="seccion" id="inicio">
+      <section class="seccion" id="inicio">
       <div class="perfil">
         <img class="foto" src="img/foto-perfil.jpg" width="200" height="200" alt="Foto de Coral de Pablos Ormad, desarrolladora Full Stack">
         <div class="descripcion">

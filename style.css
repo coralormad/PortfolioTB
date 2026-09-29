@@ -100,6 +100,103 @@ body {
   background: rgba(255, 255, 255, 0.4);
 }
 
+/* En escritorio ni el checkbox ni la hamburguesa se ven */
+.menu-check,
+.menu-toggle {
+  display: none;
+}
+
+/* Las 3 rayas: una en el propio span y dos en ::before y ::after */
+.barras,
+.barras::before,
+.barras::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-texto);
+  border-radius: 2px;
+  transition: transform 0.2s ease, top 0.2s ease, background 0.2s ease;
+}
+
+.barras {
+  position: relative;   /* Referencia para colocar las otras dos rayas */
+}
+
+.barras::before,
+.barras::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.barras::before { top: -7px; }  /* Raya superior */
+.barras::after  { top: 7px; }   /* Raya inferior */
+
+/* MÓVIL: menos de 700px */
+@media (max-width: 699px) {
+
+  /* Checkbox oculto a la vista pero NO con display:none,
+     para que siga recibiendo foco con el teclado (Tab + Espacio) */
+  .menu-check {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    width: 44px;
+    height: 44px;
+    right: 0;
+    cursor: pointer;
+  }
+
+  /* La hamburguesa (el label) */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;                         /* 44px = tamaño mínimo recomendado para tocar con el dedo */
+    height: 44px;
+    margin-left: auto;                   /* La empuja a la derecha */
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  /* Anillo visible cuando se navega con teclado */
+  .menu-check:focus-visible ~ .menu-toggle {
+    outline: 2px solid var(--color-primario);
+    outline-offset: 2px;
+  }
+
+  /* El menú pasa a ser un panel debajo de la cabecera, oculto por defecto */
+  .menu {
+    display: none;
+    flex-direction: column;
+    flex-basis: 100%;                    /* Ocupa toda la fila (salta de línea por el flex-wrap) */
+    margin-left: 0;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+  }
+
+  /* Checkbox marcado -> se muestra el panel.
+     "~" = hermano posterior: busca un .menu que venga después del checkbox */
+  .menu-check:checked ~ .menu {
+    display: flex;
+  }
+
+  /* Checkbox marcado -> las rayas se convierten en una X */
+  .menu-check:checked ~ .menu-toggle .barras {
+    background: transparent;
+  }
+  .menu-check:checked ~ .menu-toggle .barras::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .menu-check:checked ~ .menu-toggle .barras::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
 .seccion {
   padding: 40px 16px;
   scroll-margin-top: 60px;
