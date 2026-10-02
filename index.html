@@ -1,118 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
-  <title>Coral de Pablos Ormad | Desarrolladora Full Stack</title>
-  <meta name="description" content="Portfolio de Coral de Pablos Ormad, desarrolladora web Full Stack en Sevilla. Proyectos con React, TypeScript, Supabase y PostgreSQL.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
- <header class="cabecera">
-     <div class="cabecera-inner">
-        <div class="marca">
-          <a class="logo" href="#inicio">Coral de Pablos</a>
-          <div class="redes-header">
-            <a href="https://github.com/coralormad" target="_blank" rel="noopener" aria-label="GitHub de Coral de Pablos Ormad">
-              <i class="devicon-github-original"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/coral-de-pablos-ormad-dev" target="_blank" rel="noopener" aria-label="LinkedIn de Coral de Pablos Ormad">
-              <i class="devicon-linkedin-plain"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Checkbox invisible: guarda el estado abierto/cerrado. Debe ir ANTES del label y del nav (el CSS usa el selector ~ que solo mira hacia delante) -->
-        <input type="checkbox" id="menu-check" class="menu-check" aria-label="Abrir o cerrar el menú">
-        <!-- Al pulsar el label se marca el checkbox de su for="" -->
-        <label for="menu-check" class="menu-toggle" aria-hidden="true">
-          <span class="barras"></span> <!-- las 3 rayas se dibujan con CSS -->
-        </label>
-        <nav class="menu" aria-label="Navegación principal">
-          <a href="#inicio">Inicio</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#tecnologias">Tecnologías</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-      </div>
-  </header>
-
-  
-  <main>
-      <section class="seccion" id="inicio">
-      <div class="perfil">
-        <img class="foto" src="img/foto-perfil.jpg" width="200" height="200" alt="Foto de Coral de Pablos Ormad, desarrolladora Full Stack">
-        <div class="descripcion">
-          <h1>Coral de Pablos Ormad, desarrolladora Full Stack</h1>
-          <p>Soy Coral, desarrolladora fullstack de Sevilla, recién titulada en Desarrollo de Aplicaciones Web. Me gusta el backend: pensar cómo se estructuran los datos, quién puede ver qué y por qué una cosa falla cuando no debería. Busco mi primera oportunidad profesional en un equipo donde pueda aprender rápido y aportar desde el backend, con Node.js, TypeScript y PostgreSQL. Además, estoy formándome en Dynamics 365 y Power Platform, porque me interesa cómo se conecta el código con las necesidades reales de una empresa.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="seccion" id="proyectos">
-      <h2>Proyectos</h2>
-      <div class="tarjetas">
-        <article class="tarjeta">
-          <h3>CleanOps</h3>
-          <p>PWA fullstack para la gestión de servicios de limpieza, desarrollada en solitario.</p>
-           <ul class="tecnologias">
-            <li><i class="devicon-react-original"></i> React</li>
-            <li><i class="devicon-typescript-plain"></i> TypeScript</li>
-            <li><i class="devicon-vitejs-plain"></i> Vite</li>
-            <li><i class="devicon-tailwindcss-plain"></i> Tailwind CSS</li>
-            <li><i class="devicon-supabase-plain"></i> Supabase</li>
-            <li><i class="devicon-postgresql-plain"></i> PostgreSQL</li>
-          </ul>
-          <a class="btn" href="https://github.com/coralormad/CleanOps" target="_blank" rel="noopener">Ver CleanOps en GitHub</a>
-        </article>
-         <article class="tarjeta">
-          <h3>2Tattoo</h3>
-          <p>Proyecto de fin de grado dedicado a la exposición y gestión de flashes de tatuajes. Organiza las citas con el tatuador para facilitar la agilización de su agenda.</p> 
-          <ul class="tecnologias">
-            <li><i class="devicon-php-plain"></i> PHP</li>
-            <li><i class="devicon-javascript-plain"></i> JavaScript</li>
-          </ul>
-          <a class="btn" href="https://github.com/coralormad/2tattoo" target="_blank" rel="noopener">Ver en GitHub</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="seccion" id="tecnologias">
-      <h2>Tecnologías</h2>
-      <ul class="stack">
-        <li><i class="devicon-javascript-plain"></i> JavaScript</li>
-        <li><i class="devicon-typescript-plain"></i> TypeScript</li>
-        <li><i class="devicon-nodejs-plain"></i> Node.js</li>
-        <li><i class="devicon-react-original"></i> React</li>
-        <li><i class="devicon-vitejs-plain"></i> Vite</li>
-        <li><i class="devicon-tailwindcss-plain"></i> Tailwind CSS</li>
-        <li><i class="devicon-postgresql-plain"></i> PostgreSQL</li>
-        <li><i class="devicon-supabase-plain"></i> Supabase</li>
-        <li><i class="devicon-php-plain"></i> PHP</li>
-        <li><i class="devicon-git-plain"></i> Git</li>
-        <li><i class="devicon-azure-plain"></i> Azure</li>
-      </ul>
-    </section>
-
-    <section class="seccion" id="contacto">
-      <h2>Contacto</h2>
-      <form class="formulario" action="https://formsubmit.co/soft.apps360@gmail.com" method="POST">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="comentario">Comentario</label>
-        <textarea id="comentario" name="comentario" rows="4" required></textarea>
-
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="pie">© 2026 Coral de Pablos Ormad. Todos los derechos reservados</footer>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>temp-vite</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

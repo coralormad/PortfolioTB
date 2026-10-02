@@ -1,0 +1,27 @@
+.perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.foto {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.descripcion h1 {
+  margin-bottom: 12px;
+}
+
+@media (min-width: 600px) {
+  .perfil {
+    flex-direction: row;
+    text-align: left;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,137 @@
+.cabecera {
+  background: rgba(var(--color-morado-rgb), 0.9);
+  backdrop-filter: blur(6px);
+  padding: 8px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.logo {
+  color: var(--color-texto);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.redes {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radio-pill);
+  padding: 4px 10px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-md);
+}
+
+/* MÓVIL (base): botón hamburguesa y menú plegado */
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.75);
+  border: none;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 2px;
+}
+
+.barras,
+.barras::before,
+.barras::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-texto);
+  border-radius: 2px;
+  transition: transform 0.2s ease, top 0.2s ease, background 0.2s ease;
+}
+
+.barras {
+  position: relative;
+}
+
+.barras::before,
+.barras::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.barras::before { top: -7px; }
+.barras::after  { top: 7px; }
+
+.barrasAbiertas { background: transparent; }
+.barrasAbiertas::before { top: 0; transform: rotate(45deg); }
+.barrasAbiertas::after  { top: 0; transform: rotate(-45deg); }
+
+.menu {
+  display: none;
+  flex-direction: column;
+  flex-basis: 100%;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: var(--radio-md);
+}
+
+.menuAbierto {
+  display: flex;
+}
+
+.menu a {
+  color: var(--color-texto);
+  text-decoration: none;
+  padding: 12px 8px;
+  border-radius: 4px;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ESCRITORIO: desde 700px */
+@media (min-width: 600px) {
+  .toggle {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    gap: 4px;
+    margin-left: auto;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+}

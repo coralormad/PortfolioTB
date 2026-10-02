@@ -1,0 +1,35 @@
+:root {
+  /* Colores (los tuyos) */
+  --color-primario: #5C7FA6;
+  --color-acento: #e8c8d3;
+  --color-secundario: #BFE1F5;
+  --color-fondo: #FBF6F9;
+  --color-superficie: #ffffff;
+  --color-texto: #33404D;
+  --color-morado: #B8ACE0;
+
+  /* Canales RGB, para usar con rgba() */
+  --color-morado-rgb: 184, 172, 224;
+  --color-secundario-rgb: 191, 225, 245;
+  --color-rosa-rgb: 242, 166, 194;
+  --color-primario-rgb: 92, 127, 166;
+
+  /* Tipografía */
+  --fuente-base: Arial, sans-serif;
+
+  /* Espaciado */
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 1.5rem;
+  --espacio-lg: 2.5rem;
+
+  /* Radios y sombras */
+  --radio-sm: 8px;
+  --radio-md: 12px;
+  --radio-pill: 20px;
+  --sombra-sm: 0 2px 8px rgba(var(--color-primario-rgb), 0.15);
+  --sombra-md: 0 6px 16px rgba(var(--color-primario-rgb), 0.25);
+
+  /* Layout */
+  --ancho-max: 1100px;
+}

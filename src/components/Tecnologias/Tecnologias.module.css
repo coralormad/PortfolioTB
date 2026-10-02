@@ -1,0 +1,28 @@
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.stack li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 160px;
+  background: var(--color-secundario);
+  border-radius: var(--radio-pill);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+  white-space: nowrap;
+}
+
+.stack i {
+  font-size: 1.2rem;
+  color: var(--color-primario);
+}

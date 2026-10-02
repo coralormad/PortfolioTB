@@ -9,7 +9,11 @@
   --color-morado-rgb: 184, 172, 224;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   background: var(--color-fondo);
@@ -246,6 +250,14 @@ body {
     text-align: left;
     gap: 24px;
   }
+   .tarjetas {
+    flex-direction: row;
+  }
+
+  .tarjeta {
+    flex: 0 1 340px;
+    max-width: 340px;
+  }
 }
 
 .tarjetas {
@@ -279,14 +291,7 @@ body {
 }
 
 @media (min-width: 600px) {
-  .tarjetas {
-    flex-direction: row;
-  }
-
-  .tarjeta {
-    flex: 0 1 340px;
-    max-width: 340px;
-  }
+ 
 }
 
 .tecnologias {
