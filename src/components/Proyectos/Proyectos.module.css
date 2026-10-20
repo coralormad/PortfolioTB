@@ -5,29 +5,118 @@
   justify-content: center;
 }
 
+/* Curva y duración compartidas por todos los elementos de la tarjeta */
 .tarjeta {
+  --curva: cubic-bezier(0.23, 1, 0.32, 1);
+  --duracion: 240ms;
+
   background: var(--color-superficie);
   border: 2px solid var(--color-secundario);
   border-radius: var(--radio-md);
-  padding: 16px;
+  overflow: hidden;
   flex: 1 1 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   box-shadow: var(--sombra-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform var(--duracion) var(--curva),
+    box-shadow var(--duracion) var(--curva),
+    border-color var(--duracion) var(--curva);
 }
 
-@media (hover: hover) {
-  .tarjeta:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--sombra-md);
-  }
+.tarjeta:hover,
+.tarjeta:has(:focus-visible) {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-md);
+  border-color: var(--color-morado);
 }
 
-.tarjeta h3 {
+/* Foco de teclado: el borde no tiene contraste suficiente, el outline sí */
+.tarjeta:has(:focus-visible) {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 3px;
+}
+
+/* Portada 16:10 */
+.portada {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+.portada img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 320ms var(--curva);
+}
+
+.tarjeta:hover .portada img,
+.tarjeta:has(:focus-visible) .portada img {
+  transform: scale(1.04);
+}
+
+/* Proyecto sin captura: portada tipográfica con la paleta del portfolio */
+.sinImagen {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(at 20% 15%, rgba(var(--color-morado-rgb), 0.55) 0, transparent 60%),
+    radial-gradient(at 85% 85%, rgba(var(--color-secundario-rgb), 0.8) 0, transparent 60%),
+    var(--color-fondo);
+}
+
+.sinImagen span {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--color-texto);
+  transition: transform 320ms var(--curva);
+}
+
+.tarjeta:hover .sinImagen span,
+.tarjeta:has(:focus-visible) .sinImagen span {
+  transform: scale(1.04);
+}
+
+.cuerpo {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.cuerpo h3 {
   margin-bottom: 8px;
+}
+
+/* Reto y solución: siempre visibles, recortados a 3 líneas */
+.caso {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.caso dt {
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-texto);
+  margin-bottom: 2px;
+}
+
+.caso dd {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 .tecnologias {
@@ -36,7 +125,7 @@
   justify-content: center;
   gap: 8px 16px;
   list-style: none;
-  margin: 12px 0;
+  margin: 14px 0;
 }
 
 .tecnologias li {
@@ -51,17 +140,78 @@
   color: var(--color-primario);
 }
 
-.tarjeta .enlace {
+.acciones {
   margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 16px;
+}
+
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+}
+
+.flecha {
+  display: inline-block;
+  transition: transform var(--duracion) var(--curva);
+}
+
+.tarjeta:hover .flecha,
+.tarjeta:has(:focus-visible) .flecha {
+  transform: translateX(3px);
+}
+
+/* Pulsación: respuesta inmediata y corta */
+.enlace:active {
+  transform: scale(0.97);
+  transition-duration: 100ms;
+}
+
+.demo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 12px;
+  color: var(--color-texto);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primario);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.demo:hover {
+  text-decoration-color: var(--color-morado);
+}
+
+/* Movimiento reducido: sin desplazamientos ni zoom; quedan sombra, borde y foco */
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta:hover,
+  .tarjeta:has(:focus-visible),
+  .tarjeta:hover .portada img,
+  .tarjeta:has(:focus-visible) .portada img,
+  .tarjeta:hover .sinImagen span,
+  .tarjeta:has(:focus-visible) .sinImagen span,
+  .tarjeta:hover .flecha,
+  .tarjeta:has(:focus-visible) .flecha,
+  .enlace:active {
+    transform: none;
+  }
 }
 
 @media (min-width: 600px) {
   .tarjetas {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .tarjeta {
-    flex: 0 1 340px;
-    max-width: 340px;
+    flex: 0 1 330px;
+    max-width: 330px;
   }
-}   
+}
