@@ -56,6 +56,9 @@
 }
 
 .botonCopiar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font: inherit;
   font-size: 0.8rem;
   font-weight: bold;
@@ -69,6 +72,29 @@
   transition:
     border-color 160ms var(--curva),
     box-shadow 160ms var(--curva);
+}
+
+.botonCopiar svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.check path {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: dibujar 0.35s ease 0.05s forwards;
+}
+
+@keyframes dibujar {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.copiado {
+  background: rgba(61, 154, 106, 0.12);
+  border-color: #3d9a6a;
 }
 
 .botonCopiar:hover,
@@ -88,16 +114,7 @@
 }
 
 .redes a {
-  color: var(--color-texto);
-  font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: var(--color-primario);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-}
-
-.redes a:hover {
-  text-decoration-color: var(--color-morado);
+  padding-top: 6px;
 }
 
 .formulario {

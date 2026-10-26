@@ -239,20 +239,10 @@
 }
 
 .demo {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
+  display: inline-block;
   margin-top: 12px;
-  color: var(--color-texto);
-  font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: var(--color-primario);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-}
-
-.demo:hover {
-  text-decoration-color: var(--color-morado);
+  padding-top: 12px;
+  line-height: 20px;
 }
 
 /* Movimiento reducido: sin desplazamientos ni zoom; quedan sombra, borde y foco */

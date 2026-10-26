@@ -84,8 +84,22 @@ export default function Contacto() {
             <span className={styles.etiqueta}>Email</span>
             <div className={styles.copiar}>
               <span className={styles.email}>{EMAIL_VISIBLE}</span>
-              <button type="button" className={styles.botonCopiar} onClick={copiarEmail}>
-                {copiado ? 'Copiado' : 'Copiar'}
+              <button
+                type="button"
+                className={`${styles.botonCopiar} ${copiado ? styles.copiado : ''}`}
+                onClick={copiarEmail}
+              >
+                {copiado ? (
+                  <svg className={styles.check} viewBox="0 0 16 16" fill="none" stroke="#3d9a6a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M3 8.5l3 3 7-7" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                    <rect x="5" y="5" width="9" height="9" rx="2" />
+                    <path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" />
+                  </svg>
+                )}
+                <span aria-live="polite">{copiado ? 'Copiado' : 'Copiar'}</span>
               </button>
             </div>
           </div>
@@ -98,10 +112,16 @@ export default function Contacto() {
           <div className={styles.dato}>
             <span className={styles.etiqueta}>Redes</span>
             <div className={styles.redes}>
-              <a href="https://github.com/coralormad" target="_blank" rel="noopener noreferrer">
+              <a
+                className="subrayado"
+                href="https://github.com/coralormad"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub
               </a>
               <a
+                className="subrayado"
                 href="https://www.linkedin.com/in/coral-de-pablos-ormad-dev"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -179,7 +199,7 @@ export default function Contacto() {
 
           <button
             type="submit"
-            className={`btn ${styles.enviar} ${styles[estado]}`}
+            className={`btn ${styles.enviar} ${styles[estado] ?? ''}`}
             disabled={estado === 'enviando'}
           >
             {TEXTO_BOTON[estado]}

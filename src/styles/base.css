@@ -82,13 +82,14 @@ img {
   text-decoration: none;
   margin-top: 12px;
   font-weight: bold;
+  transform: translate(var(--iman-x, 0px), var(--iman-y, 0px));
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .btn:hover,
 .btn:focus-visible {
   background: var(--color-acento);
-  transform: translateY(-2px);
+  transform: translate(var(--iman-x, 0px), calc(var(--iman-y, 0px) - 2px));
 }
 
 .btn:focus-visible {
@@ -97,5 +98,28 @@ img {
 }
 
 .btn:active {
-  transform: translateY(0) scale(0.97);
+  transform: translate(var(--iman-x, 0px), var(--iman-y, 0px)) scale(0.97);
+}
+
+.subrayado {
+  color: var(--color-texto);
+  font-weight: bold;
+  text-decoration: none;
+  padding-bottom: 6px;
+  background:
+    linear-gradient(var(--color-morado), var(--color-morado)) 0 calc(100% + 4px) / 0% 2px no-repeat,
+    linear-gradient(rgba(var(--color-primario-rgb), 0.35), rgba(var(--color-primario-rgb), 0.35)) 0 calc(100% + 4px) / 100% 2px no-repeat;
+  background-origin: content-box;
+  transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.subrayado:hover,
+.subrayado:focus-visible {
+  background-size: 100% 2px, 100% 2px;
+}
+
+.subrayado:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 4px;
+  border-radius: 2px;
 }

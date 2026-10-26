@@ -78,7 +78,7 @@ export default function Proyectos() {
                 </a>
                 {p.demo && (
                   <a
-                    className={styles.demo}
+                    className={`subrayado ${styles.demo}`}
                     href={p.demo}
                     target="_blank"
                     rel="noopener noreferrer"
