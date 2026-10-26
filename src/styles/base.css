@@ -8,6 +8,12 @@ html {
   background: var(--color-fondo);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   font-family: var(--fuente-base);
   color: var(--color-texto);

@@ -2,10 +2,12 @@ import Header from './components/Header/Header'
 import Inicio from './components/Inicio/Inicio'
 import Proyectos from './components/Proyectos/Proyectos'
 import Tecnologias from './components/Tecnologias/Tecnologias'
+import Fondo from './components/Fondo/Fondo'
 
 function App() {
   return (
     <>
+      <Fondo />
       <Header />
       <main>
         <Inicio />
