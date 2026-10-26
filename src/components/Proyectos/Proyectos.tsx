@@ -1,6 +1,20 @@
+import type { PointerEvent } from 'react'
 import { projects } from '../../data/projects'
 import Capsula from '../Capsula/Capsula'
 import styles from './Proyectos.module.css'
+
+function moverLuz(e: PointerEvent<HTMLElement>) {
+  if (e.pointerType !== 'mouse') return
+  const tarjeta = e.currentTarget
+  const caja = tarjeta.getBoundingClientRect()
+  tarjeta.style.setProperty('--mx', `${e.clientX - caja.left}px`)
+  tarjeta.style.setProperty('--my', `${e.clientY - caja.top}px`)
+}
+
+function apagarLuz(e: PointerEvent<HTMLElement>) {
+  e.currentTarget.style.removeProperty('--mx')
+  e.currentTarget.style.removeProperty('--my')
+}
 
 export default function Proyectos() {
   return (
@@ -8,7 +22,12 @@ export default function Proyectos() {
       <h2>Proyectos</h2>
       <div className={styles.tarjetas}>
         {projects.map((p) => (
-          <article key={p.id} className={styles.tarjeta}>
+          <article
+            key={p.id}
+            className={styles.tarjeta}
+            onPointerMove={moverLuz}
+            onPointerLeave={apagarLuz}
+          >
             {p.imagen ? (
               <div className={styles.portada}>
                 <img
@@ -30,6 +49,16 @@ export default function Proyectos() {
               <h3>{p.titulo}</h3>
               <span className={styles.tipo}>{p.tipo}</span>
               <p className={styles.resumen}>{p.resumen}</p>
+
+              <details className={styles.reto}>
+                <summary>Reto y solución</summary>
+                <div className={styles.retoCuerpo}>
+                  <h4>Reto</h4>
+                  <p>{p.problema}</p>
+                  <h4>Solución</h4>
+                  <p>{p.solucion}</p>
+                </div>
+              </details>
 
               <ul className={styles.tecnologias} aria-label={`Tecnologías de ${p.titulo}`}>
                 {p.techs.map((id) => (

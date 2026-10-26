@@ -10,9 +10,18 @@
   --curva: cubic-bezier(0.23, 1, 0.32, 1);
   --duracion: 240ms;
 
-  background: var(--color-superficie);
-  border: 2px solid var(--color-secundario);
+  --mx: 50%;
+  --my: -400px;
+
+  border: 2px solid transparent;
   border-radius: var(--radio-md);
+  background:
+    linear-gradient(var(--color-superficie), var(--color-superficie)) padding-box,
+    radial-gradient(
+      260px circle at var(--mx) var(--my),
+      var(--color-morado),
+      var(--color-secundario) 45%
+    ) border-box;
   overflow: hidden;
   flex: 1 1 100%;
   display: flex;
@@ -21,15 +30,13 @@
   box-shadow: var(--sombra-sm);
   transition:
     transform var(--duracion) var(--curva),
-    box-shadow var(--duracion) var(--curva),
-    border-color var(--duracion) var(--curva);
+    box-shadow var(--duracion) var(--curva);
 }
 
 .tarjeta:hover,
 .tarjeta:has(:focus-visible) {
   transform: translateY(-4px);
   box-shadow: var(--sombra-md);
-  border-color: var(--color-morado);
 }
 
 /* Foco de teclado: el borde no tiene contraste suficiente, el outline sí */
@@ -40,6 +47,7 @@
 
 /* Portada 16:10 */
 .portada {
+  position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border-bottom: 2px solid var(--color-secundario);
@@ -57,6 +65,20 @@
 .tarjeta:hover .portada img,
 .tarjeta:has(:focus-visible) .portada img {
   transform: scale(1.04);
+}
+
+.portada::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(220px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.tarjeta:hover .portada::after {
+  opacity: 1;
 }
 
 /* Proyecto sin captura: portada tipográfica con la paleta del portfolio */
@@ -112,6 +134,66 @@
   -webkit-line-clamp: 5;
   line-clamp: 5;
   overflow: hidden;
+  min-height: calc(1.55em * 5);
+}
+
+.reto {
+  border: 1px solid rgba(var(--color-morado-rgb), 0.7);
+  border-radius: var(--radio-sm);
+  background: rgba(var(--color-morado-rgb), 0.1);
+}
+
+.reto summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--radio-sm);
+}
+
+.reto summary::-webkit-details-marker {
+  display: none;
+}
+
+.reto summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  color: var(--color-primario);
+  transition: transform var(--duracion) var(--curva);
+}
+
+.reto[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.reto summary:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 2px;
+}
+
+.retoCuerpo {
+  display: grid;
+  gap: 6px;
+  padding: 0 12px 12px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.retoCuerpo h4 {
+  font-family: var(--fuente-base);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primario);
+}
+
+.retoCuerpo p + h4 {
+  margin-top: 6px;
 }
 
 .tecnologias {
@@ -192,6 +274,7 @@
   .tarjetas {
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   .tarjeta {
