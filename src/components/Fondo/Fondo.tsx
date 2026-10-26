@@ -52,6 +52,8 @@ export default function Fondo() {
     }
 
     const reducir = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const destinoLuz = document.querySelector<HTMLElement>('[data-luz]')
+    let luzX = -1
     let ancho = 0
     let alto = 0
     let nodos: Nodo[] = []
@@ -98,6 +100,12 @@ export default function Fondo() {
       const suavizado = reducir.matches ? 1 : Math.min(1, dt * 0.004)
       raton.sx += (objetivoX - raton.sx) * suavizado
       raton.sy += (objetivoY - raton.sy) * suavizado
+
+      const x = Math.round(raton.sx)
+      if (destinoLuz && x !== luzX) {
+        luzX = x
+        destinoLuz.style.setProperty('--luz-x', `${x}px`)
+      }
 
       const luz = ctx.createRadialGradient(raton.sx, raton.sy, 0, raton.sx, raton.sy, 280)
       luz.addColorStop(0, `rgba(${color.morado}, ${0.32 * INTENSIDAD})`)

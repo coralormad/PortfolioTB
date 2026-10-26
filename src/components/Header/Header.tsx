@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <>
       <div ref={centinela} className={styles.centinela} aria-hidden="true" />
-      <header className={`${styles.cabecera} ${scrollado ? styles.conScroll : ''}`}>
+      <header data-luz className={`${styles.cabecera} ${scrollado ? styles.conScroll : ''}`}>
         <div className={styles.inner}>
           <div className={styles.marca}>
             <a className={styles.logo} href="#inicio">Coral de Pablos</a>
