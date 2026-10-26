@@ -6,17 +6,6 @@
   gap: 20px;
 }
 
-.foto {
-  width: 168px;
-  height: 168px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow:
-    0 0 0 6px rgba(255, 255, 255, 0.7),
-    0 0 0 7px rgba(var(--color-morado-rgb), 0.8);
-}
-
 .descripcion {
   display: flex;
   flex-direction: column;

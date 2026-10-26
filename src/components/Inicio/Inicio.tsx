@@ -1,16 +1,11 @@
+import FotoMoneda from './FotoMoneda'
 import styles from './Inicio.module.css'
 
 export default function Inicio() {
   return (
     <section className="seccion" id="inicio">
       <div className={styles.perfil}>
-        <img
-          className={styles.foto}
-          src={`${import.meta.env.BASE_URL}img/foto-perfil.jpg`}
-          width={200}
-          height={200}
-          alt="Foto de Coral de Pablos Ormad, desarrolladora Full Stack"
-        />
+        <FotoMoneda />
         <div className={styles.descripcion}>
           <p className={styles.estado}>
             <span className={styles.punto} aria-hidden="true" />
