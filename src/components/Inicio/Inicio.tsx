@@ -12,10 +12,25 @@ export default function Inicio() {
           alt="Foto de Coral de Pablos Ormad, desarrolladora Full Stack"
         />
         <div className={styles.descripcion}>
-          <h1>Coral de Pablos Ormad, desarrolladora Full Stack</h1>
-          <p>
-            Soy Coral, desarrolladora fullstack de Sevilla, recién titulada en Desarrollo de Aplicaciones Web. Me gusta el backend: pensar cómo se estructuran los datos, quién puede ver qué y por qué una cosa falla cuando no debería. Busco mi primera oportunidad profesional en un equipo donde pueda aprender rápido y aportar desde el backend, con Node.js, TypeScript y PostgreSQL. Además, estoy formándome en Dynamics 365 y Power Platform, porque me interesa cómo se conecta el código con las necesidades reales de una empresa.
+          <p className={styles.estado}>
+            <span className={styles.punto} aria-hidden="true" />
+            Disponible · Sevilla o remoto
           </p>
+          <h1 className={styles.nombre}>Coral de Pablos</h1>
+          <p className={styles.rol}>Desarrolladora Full Stack con foco en backend</p>
+          <p className={styles.bio}>
+            Me gusta pensar <mark>cómo se estructuran los datos, quién puede ver qué</mark> y por qué algo
+            falla cuando no debería. Trabajo con Node.js, TypeScript y PostgreSQL, y me formo en
+            Dynamics 365 y Power Platform.
+          </p>
+          <div className={styles.acciones}>
+            <a className="btn" href="#proyectos">
+              Ver proyectos <span aria-hidden="true">→</span>
+            </a>
+            <a className={`btn ${styles.secundario}`} href="#contacto">
+              Escríbeme
+            </a>
+          </div>
         </div>
       </div>
     </section>
