@@ -1,0 +1,81 @@
+.capsula {
+  --curva: cubic-bezier(0.23, 1, 0.32, 1);
+
+  display: flex;
+  align-items: center;
+  color: var(--color-texto);
+  border: 1px solid transparent;
+  border-radius: var(--radio-pill);
+  white-space: nowrap;
+}
+
+.insignia {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-superficie);
+}
+
+.insignia img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.normal {
+  gap: 10px;
+  width: 160px;
+  padding: 5px 14px 5px 5px;
+  font-size: 0.9rem;
+  background: var(--color-secundario);
+  transition:
+    border-color 160ms var(--curva),
+    box-shadow 160ms var(--curva);
+}
+
+.normal .insignia {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  box-shadow: 0 1px 4px rgba(var(--color-primario-rgb), 0.25);
+}
+
+.normal .insignia img {
+  transition: transform 160ms var(--curva);
+}
+
+.normal:hover {
+  border-color: rgba(var(--color-morado-rgb), 0.9);
+  box-shadow:
+    0 0 0 3px rgba(var(--color-morado-rgb), 0.22),
+    var(--sombra-sm);
+}
+
+.normal:hover .insignia img {
+  transform: scale(1.12);
+}
+
+.compacta {
+  gap: 6px;
+  padding: 4px 10px 4px 4px;
+  font-size: 0.8rem;
+  background: rgba(var(--color-secundario-rgb), 0.45);
+  border-color: var(--color-secundario);
+}
+
+.compacta .insignia {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+}
+
+.sinIcono {
+  padding-left: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .normal:hover .insignia img {
+    transform: none;
+  }
+}

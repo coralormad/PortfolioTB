@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import styles from './Header.module.css'
 import { useScrollado } from '../../hooks/useScrollado'
+import { useSeccionActiva } from '../../hooks/useSeccionActiva'
 
 const enlaces = [
   { href: '#inicio', texto: 'Inicio' },
@@ -10,11 +11,14 @@ const enlaces = [
   { href: '#contacto', texto: 'Contacto' },
 ]
 
+const ids = enlaces.map((e) => e.href.slice(1))
+
 export default function Header() {
   const [abierto, setAbierto] = useState(false)
   const cerrar = () => setAbierto(false)
   const centinela = useRef<HTMLDivElement>(null)
   const scrollado = useScrollado(centinela)
+  const activa = useSeccionActiva(ids)
 
   return (
     <>
@@ -60,7 +64,13 @@ export default function Header() {
             aria-label="Navegación principal"
           >
             {enlaces.map((e) => (
-              <a key={e.href} href={e.href} onClick={cerrar}>
+              <a
+              key={e.href}
+              href={e.href}
+              onClick={cerrar}
+              className={activa === e.href.slice(1) ? styles.activo : undefined}
+              aria-current={activa === e.href.slice(1) ? 'location' : undefined}
+            >
                 {e.texto}
               </a>
             ))}
@@ -69,4 +79,4 @@ export default function Header() {
       </header>
     </>
   )
-}
+}

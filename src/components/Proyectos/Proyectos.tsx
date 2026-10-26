@@ -1,5 +1,5 @@
 import { projects } from '../../data/projects'
-import { techs } from '../../data/techs'
+import Capsula from '../Capsula/Capsula'
 import styles from './Proyectos.module.css'
 
 export default function Proyectos() {
@@ -28,29 +28,13 @@ export default function Proyectos() {
 
             <div className={styles.cuerpo}>
               <h3>{p.titulo}</h3>
-              <p>{p.descripcion}</p>
+              <span className={styles.tipo}>{p.tipo}</span>
+              <p className={styles.resumen}>{p.resumen}</p>
 
-              <dl className={styles.caso}>
-                <div>
-                  <dt>El reto</dt>
-                  <dd>{p.problema}</dd>
-                </div>
-                <div>
-                  <dt>La solución</dt>
-                  <dd>{p.solucion}</dd>
-                </div>
-              </dl>
-
-              <ul className={styles.tecnologias}>
-                {p.techs.map((id) => {
-                  const { nombre, clase } = techs[id]
-                  return (
-                    <li key={id}>
-                      <i className={clase} aria-hidden="true" />
-                      {nombre}
-                    </li>
-                  )
-                })}
+              <ul className={styles.tecnologias} aria-label={`Tecnologías de ${p.titulo}`}>
+                {p.techs.map((id) => (
+                  <Capsula key={id} id={id} tamano="compacta" />
+                ))}
               </ul>
 
               <div className={styles.acciones}>

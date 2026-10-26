@@ -1,25 +1,53 @@
+import javascript from '../assets/tecnologias/javascript.svg'
+import typescript from '../assets/tecnologias/typescript.svg'
+import nodejs from '../assets/tecnologias/nodejs.svg'
+import react from '../assets/tecnologias/react.svg'
+import vite from '../assets/tecnologias/vite.svg'
+import tailwind from '../assets/tecnologias/tailwind.svg'
+import postgresql from '../assets/tecnologias/postgresql.svg'
+import supabase from '../assets/tecnologias/supabase.svg'
+import php from '../assets/tecnologias/php.svg'
+import git from '../assets/tecnologias/git.svg'
+import azure from '../assets/tecnologias/azure.svg'
+
+export type TechId =
+  | 'javascript'
+  | 'typescript'
+  | 'nodejs'
+  | 'react'
+  | 'vite'
+  | 'tailwind'
+  | 'postgresql'
+  | 'supabase'
+  | 'php'
+  | 'git'
+  | 'azure'
+  | 'tmdb'
+  | 'leaflet'
+  | 'chartjs'
+
 export interface Tech {
   nombre: string
-  clase: string // clase CSS de Devicon
+  icono?: string
 }
 
-export const techs = {
-  javascript: { nombre: 'JavaScript', clase: 'devicon-javascript-plain' },
-  typescript: { nombre: 'TypeScript', clase: 'devicon-typescript-plain' },
-  nodejs: { nombre: 'Node.js', clase: 'devicon-nodejs-plain' },
-  react: { nombre: 'React', clase: 'devicon-react-original' },
-  vite: { nombre: 'Vite', clase: 'devicon-vitejs-plain' },
-  tailwind: { nombre: 'Tailwind CSS', clase: 'devicon-tailwindcss-plain' },
-  postgresql: { nombre: 'PostgreSQL', clase: 'devicon-postgresql-plain' },
-  supabase: { nombre: 'Supabase', clase: 'devicon-supabase-plain' },
-  php: { nombre: 'PHP', clase: 'devicon-php-plain' },
-  git: { nombre: 'Git', clase: 'devicon-git-plain' },
-  azure: { nombre: 'Azure', clase: 'devicon-azure-plain' },
-} satisfies Record<string, Tech>
+export const techs: Record<TechId, Tech> = {
+  javascript: { nombre: 'JavaScript', icono: javascript },
+  typescript: { nombre: 'TypeScript', icono: typescript },
+  nodejs: { nombre: 'Node.js', icono: nodejs },
+  react: { nombre: 'React', icono: react },
+  vite: { nombre: 'Vite', icono: vite },
+  tailwind: { nombre: 'Tailwind CSS', icono: tailwind },
+  postgresql: { nombre: 'PostgreSQL', icono: postgresql },
+  supabase: { nombre: 'Supabase', icono: supabase },
+  php: { nombre: 'PHP', icono: php },
+  git: { nombre: 'Git', icono: git },
+  azure: { nombre: 'Azure', icono: azure },
+  tmdb: { nombre: 'TheMovieDB API' },
+  leaflet: { nombre: 'Leaflet' },
+  chartjs: { nombre: 'Chart.js' },
+}
 
-export type TechId = keyof typeof techs
-
-// Orden de la sección Tecnologías (el mismo que tu HTML)
 export const stackPrincipal: TechId[] = [
   'javascript', 'typescript', 'nodejs', 'react', 'vite', 'tailwind',
   'postgresql', 'supabase', 'php', 'git', 'azure',

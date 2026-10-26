@@ -3,6 +3,8 @@ import type { TechId } from './techs'
 export interface Project {
   id: string
   titulo: string
+  tipo: string
+  resumen: string
   descripcion: string
   techs: TechId[]
   enlace: string
@@ -19,6 +21,9 @@ export const projects: Project[] = [
   {
     id: 'cleanops',
     titulo: 'CleanOps',
+    tipo: 'PWA fullstack',
+    resumen:
+      'App para empresas de limpieza con varios centros: fichaje geolocalizado (o con foto sin conexión), horarios y aviso del material que falta. La gerencia controla la asistencia y compara proveedores.',
     descripcion:
       'PWA fullstack para la gestión de servicios de limpieza, desarrollada en solitario.',
     techs: ['react', 'typescript', 'vite', 'tailwind', 'supabase', 'postgresql'],
@@ -32,6 +37,9 @@ export const projects: Project[] = [
   {
     id: '2tattoo',
     titulo: '2Tattoo',
+    tipo: 'Proyecto de fin de grado',
+    resumen:
+      'Web para que un tatuador exponga sus flashes y organice su agenda en un solo lugar. El cliente elige un diseño, consulta las fechas libres y lo reserva como cita.',
     descripcion:
       'Proyecto de fin de grado dedicado a la exposición y gestión de flashes de tatuajes. Organiza las citas con el tatuador para facilitar la agilización de su agenda.',
     techs: ['php', 'javascript'],
@@ -45,9 +53,12 @@ export const projects: Project[] = [
   {
     id: 'novenobe',
     titulo: 'NoveNoBé',
+    tipo: 'SPA · JavaScript vanilla',
+    resumen:
+      'SPA de cine alrededor de una idea: ver o no ver. Busca en TheMovieDB, sitúa en un mapa los países de producción y filtra un carrusel 3D con un anillo de géneros.',
     descripcion:
       'SPA de cine con datos de TheMovieDB construida alrededor de una idea: ver / no ver.',
-    techs: ['javascript'],
+    techs: ['javascript', 'tmdb', 'leaflet', 'chartjs'],
     enlace: 'https://github.com/coralormad/NoveNoBe',
     textoEnlace: 'Ver NoveNoBé en GitHub',
     demo: 'https://coralormad.github.io/NoveNoBe/',

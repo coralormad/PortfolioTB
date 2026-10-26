@@ -1,4 +1,5 @@
-import { techs, stackPrincipal } from '../../data/techs'
+import { stackPrincipal } from '../../data/techs'
+import Capsula from '../Capsula/Capsula'
 import styles from './Tecnologias.module.css'
 
 export default function Tecnologias() {
@@ -6,15 +7,9 @@ export default function Tecnologias() {
     <section className="seccion" id="tecnologias">
       <h2>Tecnologías</h2>
       <ul className={styles.stack}>
-        {stackPrincipal.map((id) => {
-          const { nombre, clase } = techs[id]
-          return (
-            <li key={id}>
-              <i className={clase} aria-hidden="true" />
-              {nombre}
-            </li>
-          )
-        })}
+        {stackPrincipal.map((id) => (
+          <Capsula key={id} id={id} />
+        ))}
       </ul>
     </section>
   )

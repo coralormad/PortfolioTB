@@ -3,6 +3,8 @@ import Inicio from './components/Inicio/Inicio'
 import Proyectos from './components/Proyectos/Proyectos'
 import Tecnologias from './components/Tecnologias/Tecnologias'
 import Fondo from './components/Fondo/Fondo'
+import Contacto from './components/Contacto/Contacto'
+import Pie from './components/Pie/Pie'
 
 function App() {
   return (
@@ -13,8 +15,9 @@ function App() {
         <Inicio />
         <Proyectos />
         <Tecnologias />
-        <section id="contacto" className="seccion"><h2>Contacto</h2></section>
+        <Contacto />
       </main>
+      <Pie />
     </>
   )
 }
