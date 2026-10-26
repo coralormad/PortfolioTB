@@ -20,6 +20,15 @@ body {
   min-height: 100dvh;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
 /* Fondo degradado fijo: sustituye a background-attachment: fixed */
 body::before {
   content: "";

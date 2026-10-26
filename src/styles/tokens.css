@@ -14,8 +14,8 @@
   --color-rosa-rgb: 242, 166, 194;
   --color-primario-rgb: 92, 127, 166;
 
-  /* Tipografía */
-  --fuente-base: Arial, sans-serif;
+  --fuente-base: 'Figtree Variable', Arial, sans-serif;
+  --fuente-titulos: 'Bricolage Grotesque Variable', 'Figtree Variable', Arial, sans-serif;
 
   /* Espaciado */
   --espacio-xs: 0.5rem;
