@@ -1,9 +1,66 @@
+.areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 16px;
+  text-align: left;
+}
+
+.area {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 14px;
+}
+
+.foco {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 0 2px rgba(var(--color-morado-rgb), 0.8);
+}
+
+.titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fuente-base);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primario);
+}
+
+.etiqueta {
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  background: rgba(var(--color-morado-rgb), 0.35);
+  border-radius: var(--radio-pill);
+  color: var(--color-texto);
+}
+
 .stack {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px 20px;
+  gap: 8px;
   list-style: none;
-  margin: 16px 0 0;
+  margin: 0;
   padding: 0;
+}
+
+.area li {
+  width: auto;
+}
+
+.formacion {
+  grid-column: 1 / -1;
+}
+
+.formacion li {
+  background: transparent;
+  border: 1px dashed var(--color-primario);
 }

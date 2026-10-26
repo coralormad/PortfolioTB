@@ -25,6 +25,8 @@ export type TechId =
   | 'tmdb'
   | 'leaflet'
   | 'chartjs'
+  | 'dynamics365'
+  | 'powerplatform'
 
 export interface Tech {
   nombre: string
@@ -46,9 +48,21 @@ export const techs: Record<TechId, Tech> = {
   tmdb: { nombre: 'TheMovieDB API' },
   leaflet: { nombre: 'Leaflet' },
   chartjs: { nombre: 'Chart.js' },
+  dynamics365: { nombre: 'Dynamics 365' },
+  powerplatform: { nombre: 'Power Platform' },
 }
 
-export const stackPrincipal: TechId[] = [
-  'javascript', 'typescript', 'nodejs', 'react', 'vite', 'tailwind',
-  'postgresql', 'supabase', 'php', 'git', 'azure',
+export interface AreaTecnologica {
+  titulo: string
+  techs: TechId[]
+  foco?: boolean
+  formacion?: boolean
+}
+
+export const areas: AreaTecnologica[] = [
+  { titulo: 'Backend y datos', techs: ['nodejs', 'postgresql', 'supabase', 'php'], foco: true },
+  { titulo: 'Lenguajes', techs: ['typescript', 'javascript'] },
+  { titulo: 'Frontend', techs: ['react', 'vite', 'tailwind'] },
+  { titulo: 'Herramientas y nube', techs: ['git', 'azure'] },
+  { titulo: 'En formación', techs: ['dynamics365', 'powerplatform'], formacion: true },
 ]
