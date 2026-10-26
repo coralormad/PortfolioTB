@@ -1,4 +1,6 @@
 .pie {
+  display: grid;
+  gap: 4px;
   margin-top: var(--espacio-lg);
   padding: 16px;
   padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
@@ -14,6 +16,16 @@
   backdrop-filter: blur(14px) saturate(140%);
   border-top: 1px solid rgba(255, 255, 255, 0.45);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.hora {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.hora time {
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
