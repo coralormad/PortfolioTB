@@ -9,13 +9,13 @@
   font-size: 0.9rem;
   background: linear-gradient(
     180deg,
-    rgba(var(--color-morado-rgb), 0.5),
-    rgba(var(--color-morado-rgb), 0.62)
+    var(--pie-1),
+    var(--pie-2)
   );
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   backdrop-filter: blur(14px) saturate(140%);
-  border-top: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  border-top: 1px solid var(--cristal-borde);
+  box-shadow: inset 0 1px 0 var(--cristal-brillo);
 }
 
 .hora {
@@ -30,6 +30,6 @@
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .pie {
-    background: rgba(var(--color-morado-rgb), 0.88);
+    background: var(--pie-solido);
   }
 }

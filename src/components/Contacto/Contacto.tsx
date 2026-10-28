@@ -90,7 +90,7 @@ export default function Contacto() {
                 onClick={copiarEmail}
               >
                 {copiado ? (
-                  <svg className={styles.check} viewBox="0 0 16 16" fill="none" stroke="#3d9a6a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <svg className={styles.check} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M3 8.5l3 3 7-7" />
                   </svg>
                 ) : (

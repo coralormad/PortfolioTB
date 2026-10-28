@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FiMoon, FiSun } from 'react-icons/fi'
 import styles from './Header.module.css'
 import { useScrollado } from '../../hooks/useScrollado'
 import { useSeccionActiva } from '../../hooks/useSeccionActiva'
+import { useTema } from '../../hooks/useTema'
 
 const enlaces = [
   { href: '#inicio', texto: 'Inicio' },
@@ -19,6 +21,7 @@ export default function Header() {
   const centinela = useRef<HTMLDivElement>(null)
   const scrollado = useScrollado(centinela)
   const activa = useSeccionActiva(ids)
+  const { tema, alternar } = useTema()
 
   return (
     <>
@@ -75,8 +78,17 @@ export default function Header() {
               </a>
             ))}
           </nav>
+
+          <button
+            type="button"
+            className={styles.tema}
+            aria-label={tema === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
+            onClick={alternar}
+          >
+            {tema === 'dark' ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+          </button>
         </div>
       </header>
     </>
   )
-}
+}

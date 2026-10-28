@@ -9,16 +9,16 @@
   text-align: left;
   background: linear-gradient(
     180deg,
-    rgba(var(--color-morado-rgb), 0.32),
-    rgba(255, 255, 255, 0.55)
+    var(--panel-contacto-1),
+    var(--panel-contacto-2)
   );
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--cristal-borde-fuerte);
   border-radius: 16px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 12px 32px -16px rgba(var(--color-primario-rgb), 0.35);
+    inset 0 1px 0 var(--cristal-brillo),
+    0 12px 32px -16px rgba(var(--color-sombra-rgb), 0.35);
 }
 
 .lateral {
@@ -41,7 +41,7 @@
   font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-primario);
+  color: var(--color-etiqueta);
 }
 
 .copiar {
@@ -64,7 +64,7 @@
   font-weight: bold;
   color: var(--color-texto);
   background: var(--color-superficie);
-  border: 1px solid var(--color-secundario);
+  border: 1px solid var(--color-borde-campo);
   border-radius: var(--radio-pill);
   padding: 4px 12px;
   min-height: 32px;
@@ -80,6 +80,10 @@
   flex-shrink: 0;
 }
 
+.check {
+  color: var(--color-exito);
+}
+
 .check path {
   stroke-dasharray: 20;
   stroke-dashoffset: 20;
@@ -93,18 +97,18 @@
 }
 
 .copiado {
-  background: rgba(61, 154, 106, 0.12);
-  border-color: #3d9a6a;
+  background: rgba(var(--color-exito-rgb), 0.12);
+  border-color: var(--color-exito);
 }
 
 .botonCopiar:hover,
 .botonCopiar:focus-visible {
-  border-color: rgba(var(--color-morado-rgb), 0.9);
-  box-shadow: 0 0 0 3px rgba(var(--color-morado-rgb), 0.22);
+  border-color: rgba(var(--color-acento-rgb), 0.9);
+  box-shadow: 0 0 0 3px rgba(var(--color-acento-rgb), 0.22);
 }
 
 .botonCopiar:focus-visible {
-  outline: 2px solid var(--color-primario);
+  outline: 2px solid var(--color-foco);
   outline-offset: 2px;
 }
 
@@ -142,7 +146,7 @@
   font-size: 1rem;
   color: var(--color-texto);
   background: var(--color-superficie);
-  border: 1px solid var(--color-secundario);
+  border: 1px solid var(--color-borde-campo);
   border-radius: var(--radio-sm);
   transition:
     border-color 160ms var(--curva),
@@ -174,7 +178,7 @@
 .campo textarea:focus + label,
 .campo textarea:not(:placeholder-shown) + label {
   transform: translateY(-9px) scale(0.75);
-  color: var(--color-primario);
+  color: var(--color-etiqueta);
   opacity: 1;
   font-weight: bold;
 }
@@ -182,18 +186,18 @@
 .campo input:focus,
 .campo textarea:focus {
   outline: none;
-  border-color: rgba(var(--color-morado-rgb), 0.9);
-  box-shadow: 0 0 0 3px rgba(var(--color-morado-rgb), 0.22);
+  border-color: rgba(var(--color-acento-rgb), 0.9);
+  box-shadow: 0 0 0 3px rgba(var(--color-acento-rgb), 0.22);
 }
 
 .valido input {
-  border-color: var(--color-primario);
+  border-color: var(--color-etiqueta);
 }
 
 .invalido input,
 .invalido input:focus {
-  border-color: #b3475f;
-  box-shadow: 0 0 0 3px rgba(179, 71, 95, 0.15);
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(var(--color-error-rgb), 0.15);
 }
 
 .ayuda {
@@ -201,7 +205,7 @@
   min-height: 1.2em;
   margin-top: 4px;
   font-size: 0.8rem;
-  color: #a03a52;
+  color: var(--color-error-texto);
 }
 
 .contador {
@@ -231,7 +235,7 @@
 }
 
 .enviado {
-  background: var(--color-secundario);
+  background: var(--enviado-fondo);
 }
 
 .estado {
@@ -243,7 +247,7 @@
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .panel {
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--panel-fondo-fuerte);
   }
 }
 

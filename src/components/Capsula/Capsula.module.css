@@ -14,7 +14,7 @@
   place-items: center;
   flex-shrink: 0;
   border-radius: 50%;
-  background: var(--color-superficie);
+  background: var(--color-insignia);
 }
 
 .insignia img {
@@ -28,7 +28,8 @@
   width: 160px;
   padding: 5px 14px 5px 5px;
   font-size: 0.9rem;
-  background: var(--color-secundario);
+  background: var(--capsula-fondo);
+  border-color: var(--capsula-borde);
   transition:
     border-color 160ms var(--curva),
     box-shadow 160ms var(--curva);
@@ -38,7 +39,7 @@
   width: 30px;
   height: 30px;
   padding: 6px;
-  box-shadow: 0 1px 4px rgba(var(--color-primario-rgb), 0.25);
+  box-shadow: 0 1px 4px rgba(var(--color-sombra-rgb), 0.25);
 }
 
 .normal .insignia img {
@@ -46,9 +47,9 @@
 }
 
 .normal:hover {
-  border-color: rgba(var(--color-morado-rgb), 0.9);
+  border-color: rgba(var(--color-acento-rgb), 0.9);
   box-shadow:
-    0 0 0 3px rgba(var(--color-morado-rgb), 0.22),
+    0 0 0 3px rgba(var(--color-acento-rgb), 0.22),
     var(--sombra-sm);
 }
 
@@ -60,8 +61,8 @@
   gap: 6px;
   padding: 4px 10px 4px 4px;
   font-size: 0.8rem;
-  background: rgba(var(--color-secundario-rgb), 0.45);
-  border-color: var(--color-secundario);
+  background: var(--capsula-compacta-fondo);
+  border-color: var(--color-borde);
 }
 
 .compacta .insignia {

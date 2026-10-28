@@ -19,8 +19,8 @@
     linear-gradient(var(--color-superficie), var(--color-superficie)) padding-box,
     radial-gradient(
       260px circle at var(--mx) var(--my),
-      var(--color-morado),
-      var(--color-secundario) 45%
+      var(--color-acento),
+      var(--color-borde) 45%
     ) border-box;
   overflow: hidden;
   flex: 1 1 100%;
@@ -41,7 +41,7 @@
 
 /* Foco de teclado: el borde no tiene contraste suficiente, el outline sí */
 .tarjeta:has(:focus-visible) {
-  outline: 2px solid var(--color-primario);
+  outline: 2px solid var(--color-foco);
   outline-offset: 3px;
 }
 
@@ -50,7 +50,7 @@
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  border-bottom: 2px solid var(--color-secundario);
+  border-bottom: 2px solid var(--color-borde);
 }
 
 .portada img {
@@ -72,7 +72,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(220px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.35), transparent 60%);
+  background: radial-gradient(220px circle at var(--mx) var(--my), var(--brillo-portada), transparent 60%);
   opacity: 0;
   transition: opacity 200ms ease;
 }
@@ -86,8 +86,8 @@
   display: grid;
   place-items: center;
   background:
-    radial-gradient(at 20% 15%, rgba(var(--color-morado-rgb), 0.55) 0, transparent 60%),
-    radial-gradient(at 85% 85%, rgba(var(--color-secundario-rgb), 0.8) 0, transparent 60%),
+    radial-gradient(at 20% 15%, var(--portada-luz-1) 0, transparent 60%),
+    radial-gradient(at 85% 85%, var(--portada-luz-2) 0, transparent 60%),
     var(--color-fondo);
 }
 
@@ -123,7 +123,7 @@
   font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-primario);
+  color: var(--color-etiqueta);
 }
 
 .resumen {
@@ -138,9 +138,9 @@
 }
 
 .reto {
-  border: 1px solid rgba(var(--color-morado-rgb), 0.7);
+  border: 1px solid var(--reto-borde);
   border-radius: var(--radio-sm);
-  background: rgba(var(--color-morado-rgb), 0.1);
+  background: var(--reto-fondo);
 }
 
 .reto summary {
@@ -163,7 +163,7 @@
 .reto summary::after {
   content: "+";
   font-size: 1.2rem;
-  color: var(--color-primario);
+  color: var(--color-etiqueta);
   transition: transform var(--duracion) var(--curva);
 }
 
@@ -172,7 +172,7 @@
 }
 
 .reto summary:focus-visible {
-  outline: 2px solid var(--color-primario);
+  outline: 2px solid var(--color-foco);
   outline-offset: 2px;
 }
 
@@ -189,7 +189,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-primario);
+  color: var(--color-etiqueta);
 }
 
 .retoCuerpo p + h4 {
@@ -203,7 +203,7 @@
   gap: 6px;
   list-style: none;
   padding-top: 12px;
-  border-top: 1px solid rgba(var(--color-secundario-rgb), 0.9);
+  border-top: 1px solid var(--color-borde);
 }
 
 .acciones {

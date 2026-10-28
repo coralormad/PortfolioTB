@@ -9,16 +9,16 @@
   gap: 12px;
   align-content: start;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--panel-fondo);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--cristal-borde-fuerte);
   border-radius: 14px;
 }
 
 .foco {
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 0 0 2px rgba(var(--color-morado-rgb), 0.8);
+  background: var(--panel-fondo-fuerte);
+  box-shadow: inset 0 0 0 2px rgba(var(--color-acento-rgb), 0.8);
 }
 
 .titulo {
@@ -30,14 +30,14 @@
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-primario);
+  color: var(--color-etiqueta);
 }
 
 .etiqueta {
   padding: 2px 8px;
   font-size: 0.65rem;
   letter-spacing: 0.08em;
-  background: rgba(var(--color-morado-rgb), 0.35);
+  background: var(--etiqueta-fondo);
   border-radius: var(--radio-pill);
   color: var(--color-texto);
 }
@@ -62,5 +62,5 @@
 
 .formacion li {
   background: transparent;
-  border: 1px dashed var(--color-primario);
+  border: 1px dashed var(--borde-discontinuo);
 }

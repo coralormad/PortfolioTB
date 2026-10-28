@@ -7,7 +7,7 @@ type Capa = {
   alfa: number
   vel: number
   enlace: number
-  linea: 'primario' | 'morado'
+  linea: 'nodo' | 'linea'
   peso: number
 }
 
@@ -21,9 +21,9 @@ type Nodo = {
 }
 
 const CAPAS: Capa[] = [
-  { prof: 0.25, radio: [0.8, 1.3], alfa: 0.3, vel: 6, enlace: 80, linea: 'morado', peso: 0.45 },
-  { prof: 0.55, radio: [1.2, 1.9], alfa: 0.45, vel: 10, enlace: 105, linea: 'morado', peso: 0.35 },
-  { prof: 1, radio: [1.8, 2.6], alfa: 0.6, vel: 14, enlace: 130, linea: 'primario', peso: 0.2 },
+  { prof: 0.25, radio: [0.8, 1.3], alfa: 0.3, vel: 6, enlace: 80, linea: 'linea', peso: 0.45 },
+  { prof: 0.55, radio: [1.2, 1.9], alfa: 0.45, vel: 10, enlace: 105, linea: 'linea', peso: 0.35 },
+  { prof: 1, radio: [1.8, 2.6], alfa: 0.6, vel: 14, enlace: 130, linea: 'nodo', peso: 0.2 },
 ]
 
 const MARGEN = 60
@@ -44,12 +44,15 @@ export default function Fondo() {
     const ctx = canvas?.getContext('2d')
     if (!canvas || !ctx) return
 
-    const color = {
-      primario: leerRgb('--color-primario-rgb', '92, 127, 166'),
-      morado: leerRgb('--color-morado-rgb', '184, 172, 224'),
-      secundario: leerRgb('--color-secundario-rgb', '191, 225, 245'),
-      rosa: leerRgb('--color-rosa-rgb', '242, 166, 194'),
-    }
+    const leerColores = () => ({
+      nodo: leerRgb('--constelacion-nodo-rgb', '154, 163, 174'),
+      linea: leerRgb('--constelacion-linea-rgb', '154, 163, 174'),
+      enlace: leerRgb('--constelacion-enlace-rgb', '62, 224, 138'),
+      luz: leerRgb('--constelacion-luz-rgb', '62, 224, 138'),
+      luz2: leerRgb('--constelacion-luz-2-rgb', '62, 224, 138'),
+      fuerza: Number(leerRgb('--constelacion-luz-fuerza', '1')) || 1,
+    })
+    let color = leerColores()
 
     const reducir = window.matchMedia('(prefers-reduced-motion: reduce)')
     const destinoLuz = document.querySelector<HTMLElement>('[data-luz]')
@@ -108,9 +111,9 @@ export default function Fondo() {
       }
 
       const luz = ctx.createRadialGradient(raton.sx, raton.sy, 0, raton.sx, raton.sy, 280)
-      luz.addColorStop(0, `rgba(${color.morado}, ${0.32 * INTENSIDAD})`)
-      luz.addColorStop(0.45, `rgba(${color.secundario}, ${0.18 * INTENSIDAD})`)
-      luz.addColorStop(1, `rgba(${color.rosa}, 0)`)
+      luz.addColorStop(0, `rgba(${color.luz}, ${0.32 * INTENSIDAD * color.fuerza})`)
+      luz.addColorStop(0.45, `rgba(${color.luz2}, ${0.18 * INTENSIDAD * color.fuerza})`)
+      luz.addColorStop(1, `rgba(${color.luz2}, 0)`)
       ctx.fillStyle = luz
       ctx.fillRect(0, 0, ancho, alto)
 
@@ -154,7 +157,7 @@ export default function Fondo() {
         if (a.n.c > 0) {
           const d = Math.hypot(a.x - raton.sx, a.y - raton.sy)
           if (d < RADIO_CURSOR) {
-            ctx.strokeStyle = `rgba(${color.primario}, ${(1 - d / RADIO_CURSOR) * 0.35 * INTENSIDAD})`
+            ctx.strokeStyle = `rgba(${color.enlace}, ${(1 - d / RADIO_CURSOR) * 0.35 * INTENSIDAD})`
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(raton.sx, raton.sy)
@@ -165,7 +168,7 @@ export default function Fondo() {
 
       for (const p of posiciones) {
         const capa = CAPAS[p.n.c]
-        ctx.fillStyle = `rgba(${color.primario}, ${Math.min(1, capa.alfa * INTENSIDAD)})`
+        ctx.fillStyle = `rgba(${color.nodo}, ${Math.min(1, capa.alfa * INTENSIDAD)})`
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.n.r, 0, Math.PI * 2)
         ctx.fill()
@@ -211,6 +214,12 @@ export default function Fondo() {
       if (reducir.matches) dibujar(0, 0)
     }
 
+    const observador = new MutationObserver(() => {
+      color = leerColores()
+      if (reducir.matches) dibujar(0, 0)
+    })
+    observador.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+
     window.addEventListener('pointermove', alMoverRaton, { passive: true })
     window.addEventListener('resize', redimensionar)
     window.addEventListener('scroll', alHacerScroll, { passive: true })
@@ -221,6 +230,7 @@ export default function Fondo() {
 
     return () => {
       cancelAnimationFrame(frame)
+      observador.disconnect()
       window.removeEventListener('pointermove', alMoverRaton)
       window.removeEventListener('resize', redimensionar)
       window.removeEventListener('scroll', alHacerScroll)

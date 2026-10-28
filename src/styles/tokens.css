@@ -1,35 +1,201 @@
 :root {
-  /* Colores (los tuyos) */
-  --color-primario: #5C7FA6;
-  --color-acento: #e8c8d3;
-  --color-secundario: #BFE1F5;
-  --color-fondo: #FBF6F9;
-  --color-superficie: #ffffff;
-  --color-texto: #33404D;
-  --color-morado: #B8ACE0;
+  color-scheme: dark;
 
-  /* Canales RGB, para usar con rgba() */
-  --color-morado-rgb: 184, 172, 224;
-  --color-secundario-rgb: 191, 225, 245;
-  --color-rosa-rgb: 242, 166, 194;
-  --color-primario-rgb: 92, 127, 166;
+  --color-fondo: #121418;
+  --color-superficie: #1C2027;
+  --color-superficie-2: #2A303A;
+  --color-borde: #2A3039;
+  --color-borde-campo: #6B7380;
+  --color-texto: #E7EAEE;
+  --color-etiqueta: #62EBA0;
+  --color-foco: #62EBA0;
+  --color-icono: #C9CFD7;
+  --color-icono-hover: #62EBA0;
+
+  --color-acento: #3EE08A;
+  --color-acento-hover: #5CEA9D;
+  --color-sobre-acento: #03200F;
+  --color-acento-rgb: 62, 224, 138;
+
+  --color-exito: #3EE08A;
+  --color-exito-rgb: 62, 224, 138;
+  --color-error: #F2788C;
+  --color-error-texto: #F2788C;
+  --color-error-rgb: 242, 120, 140;
+  --color-sombra-rgb: 0, 0, 0;
+  --color-insignia: #FFFFFF;
+
+  --fondo-luz-1: rgba(62, 224, 138, 0.06);
+  --fondo-luz-2: rgba(154, 163, 174, 0.07);
+  --fondo-luz-3: rgba(62, 224, 138, 0.035);
+  --seleccion: rgba(62, 224, 138, 0.35);
+  --marcador: rgba(62, 224, 138, 0.28);
+  --subrayado-base: rgba(154, 163, 174, 0.35);
+  --halo: 0 0 0 1px rgba(62, 224, 138, 0.55), 0 0 16px rgba(62, 224, 138, 0.35);
+
+  --cristal-rgb: 18, 20, 24;
+  --cristal-borde: rgba(255, 255, 255, 0.07);
+  --cristal-borde-fuerte: rgba(255, 255, 255, 0.08);
+  --cristal-brillo: rgba(255, 255, 255, 0.04);
+  --relieve-texto: 0 1px 0 rgba(0, 0, 0, 0.35);
+  --pastilla-fondo: rgba(35, 40, 49, 0.75);
+  --panel-fondo: rgba(28, 32, 39, 0.55);
+  --panel-fondo-fuerte: rgba(35, 40, 49, 0.85);
+  --hover-suave: rgba(255, 255, 255, 0.06);
+  --activo-fondo: rgba(62, 224, 138, 0.1);
+  --activo-borde: rgba(62, 224, 138, 0.45);
+  --luz-centro: rgba(98, 235, 160, 0.95);
+  --luz-halo: drop-shadow(0 0 6px rgba(62, 224, 138, 0.7));
+
+  --brillo-portada: rgba(255, 255, 255, 0.12);
+  --portada-luz-1: rgba(62, 224, 138, 0.16);
+  --portada-luz-2: rgba(154, 163, 174, 0.14);
+  --reto-borde: #2A3039;
+  --reto-fondo: rgba(255, 255, 255, 0.03);
+  --capsula-fondo: #232831;
+  --capsula-borde: #2E353F;
+  --capsula-compacta-fondo: rgba(154, 163, 174, 0.1);
+  --etiqueta-fondo: rgba(62, 224, 138, 0.14);
+  --borde-discontinuo: #6B7380;
+  --ciudad-fondo: rgba(62, 224, 138, 0.14);
+  --panel-contacto-1: rgba(62, 224, 138, 0.05);
+  --panel-contacto-2: rgba(28, 32, 39, 0.72);
+  --enviado-fondo: #2CC676;
+  --pie-1: rgba(23, 26, 31, 0.7);
+  --pie-2: rgba(23, 26, 31, 0.85);
+  --pie-solido: rgba(23, 26, 31, 0.95);
+
+  --metal-claro: #4A525E;
+  --metal-medio: #2A303A;
+  --metal-oscuro: #1C2027;
+  --metal-brillo: #3A414C;
+  --metal-2: #2A303A;
+  --metal-3: #5B6470;
+  --metal-4: #1C2027;
+  --metal-5: #3A414C;
+  --moneda-filo: rgba(62, 224, 138, 0.85);
+  --moneda-halo: 0 0 22px rgba(62, 224, 138, 0.18);
+  --reverso-1: #3A414C;
+  --reverso-2: #262B33;
+  --reverso-3: #1C2027;
+  --reverso-borde: #4A525E;
+  --reverso-titulo: #62EBA0;
+  --reverso-relieve: none;
+
+  --constelacion-nodo-rgb: 154, 163, 174;
+  --constelacion-linea-rgb: 154, 163, 174;
+  --constelacion-enlace-rgb: 62, 224, 138;
+  --constelacion-luz-rgb: 62, 224, 138;
+  --constelacion-luz-2-rgb: 62, 224, 138;
+  --constelacion-luz-fuerza: 0.35;
 
   --fuente-base: 'Figtree Variable', Arial, sans-serif;
   --fuente-titulos: 'Bricolage Grotesque Variable', 'Figtree Variable', Arial, sans-serif;
 
-  /* Espaciado */
   --espacio-xs: 0.5rem;
   --espacio-sm: 1rem;
   --espacio-md: 1.5rem;
   --espacio-lg: 2.5rem;
 
-  /* Radios y sombras */
   --radio-sm: 8px;
   --radio-md: 12px;
   --radio-pill: 20px;
-  --sombra-sm: 0 2px 8px rgba(var(--color-primario-rgb), 0.15);
-  --sombra-md: 0 6px 16px rgba(var(--color-primario-rgb), 0.25);
+  --sombra-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --sombra-md: 0 10px 24px rgba(0, 0, 0, 0.5);
 
-  /* Layout */
   --ancho-max: 1100px;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-fondo: #FBF6F9;
+  --color-superficie: #ffffff;
+  --color-superficie-2: #ffffff;
+  --color-borde: #BFE1F5;
+  --color-borde-campo: #BFE1F5;
+  --color-texto: #33404D;
+  --color-etiqueta: #5C7FA6;
+  --color-foco: #5C7FA6;
+  --color-icono: #5C7FA6;
+  --color-icono-hover: #e8c8d3;
+
+  --color-acento: #B8ACE0;
+  --color-acento-hover: #e8c8d3;
+  --color-sobre-acento: #33404D;
+  --color-acento-rgb: 184, 172, 224;
+
+  --color-exito: #3d9a6a;
+  --color-exito-rgb: 61, 154, 106;
+  --color-error: #b3475f;
+  --color-error-texto: #a03a52;
+  --color-error-rgb: 179, 71, 95;
+  --color-sombra-rgb: 92, 127, 166;
+
+  --fondo-luz-1: rgba(184, 172, 224, 0.55);
+  --fondo-luz-2: rgba(191, 225, 245, 0.6);
+  --fondo-luz-3: rgba(242, 166, 194, 0.35);
+  --seleccion: rgba(184, 172, 224, 0.65);
+  --marcador: rgba(184, 172, 224, 0.55);
+  --subrayado-base: rgba(92, 127, 166, 0.35);
+  --halo: none;
+
+  --cristal-rgb: 184, 172, 224;
+  --cristal-borde: rgba(255, 255, 255, 0.45);
+  --cristal-borde-fuerte: rgba(255, 255, 255, 0.6);
+  --cristal-brillo: rgba(255, 255, 255, 0.35);
+  --relieve-texto: 0 1px 0 rgba(255, 255, 255, 0.5);
+  --pastilla-fondo: rgba(255, 255, 255, 0.75);
+  --panel-fondo: rgba(255, 255, 255, 0.55);
+  --panel-fondo-fuerte: rgba(255, 255, 255, 0.8);
+  --hover-suave: rgba(255, 255, 255, 0.4);
+  --activo-fondo: rgba(255, 255, 255, 0.55);
+  --activo-borde: rgba(255, 255, 255, 0.75);
+  --luz-centro: rgba(255, 255, 255, 0.95);
+  --luz-halo: none;
+
+  --brillo-portada: rgba(255, 255, 255, 0.35);
+  --portada-luz-1: rgba(184, 172, 224, 0.55);
+  --portada-luz-2: rgba(191, 225, 245, 0.8);
+  --reto-borde: rgba(184, 172, 224, 0.7);
+  --reto-fondo: rgba(184, 172, 224, 0.1);
+  --capsula-fondo: #BFE1F5;
+  --capsula-borde: transparent;
+  --capsula-compacta-fondo: rgba(191, 225, 245, 0.45);
+  --etiqueta-fondo: rgba(184, 172, 224, 0.35);
+  --borde-discontinuo: #5C7FA6;
+  --ciudad-fondo: rgba(191, 225, 245, 0.7);
+  --panel-contacto-1: rgba(184, 172, 224, 0.32);
+  --panel-contacto-2: rgba(255, 255, 255, 0.55);
+  --enviado-fondo: #BFE1F5;
+  --pie-1: rgba(184, 172, 224, 0.5);
+  --pie-2: rgba(184, 172, 224, 0.62);
+  --pie-solido: rgba(184, 172, 224, 0.88);
+
+  --metal-claro: #f7f5fb;
+  --metal-medio: #cfc6e6;
+  --metal-oscuro: #9d92c2;
+  --metal-brillo: #e7e2f3;
+  --metal-2: #bdb3d9;
+  --metal-3: #f9f8fc;
+  --metal-4: #a99fca;
+  --metal-5: #efeaf8;
+  --moneda-filo: transparent;
+  --moneda-halo: 0 0 0 transparent;
+  --reverso-1: #ffffff;
+  --reverso-2: #e9e4f4;
+  --reverso-3: #cfc6e6;
+  --reverso-borde: #d9d2ec;
+  --reverso-titulo: #6f63a8;
+  --reverso-relieve: 0 1px 0 #fff;
+
+  --constelacion-nodo-rgb: 92, 127, 166;
+  --constelacion-linea-rgb: 184, 172, 224;
+  --constelacion-enlace-rgb: 92, 127, 166;
+  --constelacion-luz-rgb: 184, 172, 224;
+  --constelacion-luz-2-rgb: 191, 225, 245;
+  --constelacion-luz-fuerza: 1;
+
+  --sombra-sm: 0 2px 8px rgba(92, 127, 166, 0.15);
+  --sombra-md: 0 6px 16px rgba(92, 127, 166, 0.25);
 }

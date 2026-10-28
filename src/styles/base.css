@@ -36,13 +36,13 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(at 15% 10%, rgba(var(--color-morado-rgb), 0.55) 0, transparent 50%),
-    radial-gradient(at 85% 20%, rgba(var(--color-secundario-rgb), 0.6) 0, transparent 50%),
-    radial-gradient(at 50% 90%, rgba(var(--color-rosa-rgb), 0.35) 0, transparent 50%);
+    radial-gradient(at 15% 10%, var(--fondo-luz-1) 0, transparent 50%),
+    radial-gradient(at 85% 20%, var(--fondo-luz-2) 0, transparent 50%),
+    radial-gradient(at 50% 90%, var(--fondo-luz-3) 0, transparent 50%);
 }
 
 ::selection {
-  background: rgba(var(--color-morado-rgb), 0.65);
+  background: var(--seleccion);
   color: var(--color-texto);
 }
 
@@ -80,20 +80,21 @@ img {
 
 .btn {
   display: inline-block;
-  background: var(--color-morado);
-  color: var(--color-texto);
+  background: var(--color-acento);
+  color: var(--color-sobre-acento);
   padding: 8px 16px;
   border-radius: var(--radio-pill);
   text-decoration: none;
   margin-top: 12px;
   font-weight: bold;
   transform: translate(var(--iman-x, 0px), var(--iman-y, 0px));
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover,
 .btn:focus-visible {
-  background: var(--color-acento);
+  background: var(--color-acento-hover);
+  box-shadow: var(--halo);
   transform: translate(var(--iman-x, 0px), calc(var(--iman-y, 0px) - 2px));
 }
 
@@ -112,8 +113,8 @@ img {
   text-decoration: none;
   padding-bottom: 6px;
   background:
-    linear-gradient(var(--color-morado), var(--color-morado)) 0 calc(100% + 4px) / 0% 2px no-repeat,
-    linear-gradient(rgba(var(--color-primario-rgb), 0.35), rgba(var(--color-primario-rgb), 0.35)) 0 calc(100% + 4px) / 100% 2px no-repeat;
+    linear-gradient(var(--color-acento), var(--color-acento)) 0 calc(100% + 4px) / 0% 2px no-repeat,
+    linear-gradient(var(--subrayado-base), var(--subrayado-base)) 0 calc(100% + 4px) / 100% 2px no-repeat;
   background-origin: content-box;
   transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -124,7 +125,7 @@ img {
 }
 
 .subrayado:focus-visible {
-  outline: 2px solid var(--color-primario);
+  outline: 2px solid var(--color-foco);
   outline-offset: 4px;
   border-radius: 2px;
 }

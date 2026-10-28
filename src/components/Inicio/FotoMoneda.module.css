@@ -1,9 +1,5 @@
 .escena {
   --tamano: 168px;
-  --metal-claro: #f7f5fb;
-  --metal-medio: #cfc6e6;
-  --metal-oscuro: #9d92c2;
-
   position: relative;
   flex-shrink: 0;
   width: var(--tamano);
@@ -24,7 +20,7 @@
 }
 
 .moneda:focus-visible {
-  outline: 3px solid var(--color-primario);
+  outline: 3px solid var(--color-foco);
   outline-offset: 8px;
 }
 
@@ -51,7 +47,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: linear-gradient(90deg, var(--metal-oscuro), #e7e2f3 40%, var(--metal-oscuro));
+  background: linear-gradient(90deg, var(--metal-oscuro), var(--metal-brillo) 40%, var(--metal-oscuro));
 }
 
 .cara {
@@ -63,7 +59,9 @@
   border-radius: 50%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  box-shadow: 0 16px 24px -10px rgba(var(--color-primario-rgb), 0.45);
+  box-shadow:
+    0 16px 24px -10px rgba(var(--color-sombra-rgb), 0.45),
+    var(--moneda-halo);
   transition: opacity 0.25s ease;
 }
 
@@ -73,11 +71,11 @@
   background: conic-gradient(
     from 20deg,
     var(--metal-claro),
-    #bdb3d9,
-    #f9f8fc,
-    #a99fca,
-    #efeaf8,
-    #bdb3d9,
+    var(--metal-2),
+    var(--metal-3),
+    var(--metal-4),
+    var(--metal-5),
+    var(--metal-2),
     var(--metal-claro)
   );
 }
@@ -88,12 +86,13 @@
   border-radius: 50%;
   object-fit: cover;
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
+  outline: 1.5px solid var(--moneda-filo);
 }
 
 .reverso {
   transform: rotateY(180deg) translateZ(5px);
-  background: radial-gradient(circle at 35% 30%, #ffffff, #e9e4f4 45%, var(--metal-medio));
-  border: 6px solid #d9d2ec;
+  background: radial-gradient(circle at 35% 30%, var(--reverso-1), var(--reverso-2) 45%, var(--reverso-3));
+  border: 6px solid var(--reverso-borde);
 }
 
 .ficha {
@@ -109,13 +108,13 @@
 .ficha strong {
   font-family: var(--fuente-titulos);
   font-size: 1rem;
-  color: #6f63a8;
-  text-shadow: 0 1px 0 #fff;
+  color: var(--reverso-titulo);
+  text-shadow: var(--reverso-relieve);
 }
 
 .stack {
   font-weight: bold;
-  color: var(--color-primario);
+  color: var(--color-etiqueta);
 }
 
 .ciudad {
@@ -124,7 +123,7 @@
   padding: 2px 10px;
   font-weight: bold;
   border-radius: var(--radio-pill);
-  background: rgba(var(--color-secundario-rgb), 0.7);
+  background: var(--ciudad-fondo);
 }
 
 .brillo {
