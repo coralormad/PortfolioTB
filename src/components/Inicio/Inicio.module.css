@@ -87,7 +87,7 @@
 .acciones .secundario {
   color: var(--color-texto);
   background: var(--pastilla-fondo);
-  box-shadow: inset 0 0 0 1px var(--color-borde);
+  box-shadow: inset 0 0 0 1px var(--borde-secundario);
 }
 
 .acciones .secundario:hover,

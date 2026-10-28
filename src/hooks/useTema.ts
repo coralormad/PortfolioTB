@@ -4,7 +4,7 @@ type Tema = 'dark' | 'light'
 
 const COLOR_BARRA: Record<Tema, string> = {
   dark: '#121418',
-  light: '#FBF6F9',
+  light: '#F3FAF7',
 }
 
 export function useTema() {
