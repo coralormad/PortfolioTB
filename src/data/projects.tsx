@@ -26,7 +26,7 @@ export const projects: Project[] = [
       'App para empresas de limpieza con varios centros: fichaje geolocalizado (o con foto sin conexión), horarios y aviso del material que falta. La gerencia controla la asistencia y compara proveedores.',
     descripcion:
       'PWA fullstack para la gestión de servicios de limpieza, desarrollada en solitario.',
-    techs: ['react', 'typescript', 'vite', 'tailwind', 'supabase', 'postgresql'],
+    techs: ['react', 'typescript', 'vite', 'tailwind', 'supabase', 'postgresql', 'git'],
     enlace: 'https://github.com/coralormad/CleanOps',
     textoEnlace: 'Ver CleanOps en GitHub',
     problema:
@@ -42,7 +42,7 @@ export const projects: Project[] = [
       'Web para que un tatuador exponga sus flashes y organice su agenda en un solo lugar. El cliente elige un diseño, consulta las fechas libres y lo reserva como cita.',
     descripcion:
       'Proyecto de fin de grado dedicado a la exposición y gestión de flashes de tatuajes. Organiza las citas con el tatuador para facilitar la agilización de su agenda.',
-    techs: ['php', 'javascript'],
+    techs: ['php', 'javascript', 'git'],
     enlace: 'https://github.com/coralormad/2tattoo',
     textoEnlace: 'Ver en GitHub',
     problema:
@@ -58,7 +58,7 @@ export const projects: Project[] = [
       'SPA de cine alrededor de una idea: ver o no ver. Busca en TheMovieDB, sitúa en un mapa los países de producción y filtra un carrusel 3D con un anillo de géneros.',
     descripcion:
       'SPA de cine con datos de TheMovieDB construida alrededor de una idea: ver / no ver.',
-    techs: ['javascript', 'tmdb', 'leaflet', 'chartjs'],
+    techs: ['javascript', 'tmdb', 'leaflet', 'chartjs', 'git'],
     enlace: 'https://github.com/coralormad/NoveNoBe',
     textoEnlace: 'Ver NoveNoBé en GitHub',
     demo: 'https://coralormad.github.io/NoveNoBe/',
@@ -69,4 +69,20 @@ export const projects: Project[] = [
     solucion:
       'JavaScript vanilla con módulos ES6 y clases: búsqueda con debounce y AbortController, mapa Leaflet de países de producción y un anillo de Chart.js que filtra un carrusel 3D. Añade un recomendador propio, Mi lista en localStorage y tema claro/oscuro.',
   },
-]
+  {
+    id: 'reservas-api',
+    titulo: 'Reservas API',
+    tipo: 'API REST · PHP 8.3',
+    resumen:
+      'API REST en PHP nativo para gestionar reservas de alojamiento, con interfaz en JavaScript que filtra, crea y cancela sin recargar. Cada cambio de estado y su historial se guardan en una misma transacción, con tests unitarios y de integración.',
+    descripcion:
+      'API REST de reservas de alojamiento desarrollada como prueba técnica para un proceso de selección.',
+    techs: ['php', 'javascript', 'git'],
+    enlace: 'https://github.com/coralormad/pruebatecnicaMP',
+    textoEnlace: 'Ver Reservas API en GitHub',
+    problema:
+      'Gestionar reservas de alojamiento con estados (pendiente, confirmada, cancelada) sin perder la coherencia de los datos: ni reservas sin historial, ni cambios de estado imposibles, ni conflictos entre dos peticiones a la vez.',
+    solucion:
+      'Arquitectura por capas (controlador, validador, servicio y repositorio) sin framework. Máquina de estados que responde 409 a las transiciones no permitidas, transacciones con rollback y bloqueo de fila (SELECT … FOR UPDATE) probados con un test de dos procesos. Validación estricta con errores 422 por campo, consultas preparadas, CSP y escape en Twig y JavaScript.',
+  },
+]
